@@ -28,7 +28,9 @@ public class ProjectSecurityConfig  {
 // NOTE: if we not disable then contact save msg will be not submitted.. thhmleaf not used in contact.html
         // CSRF: cross side request forgery
      //   http.authorizeRequests()
-        http.csrf().disable().authorizeRequests()
+        http.csrf().ignoringAntMatchers("/SaveMsg").ignoringAntMatchers("/h2-console/**").and()
+                .authorizeRequests()
+
                 .mvcMatchers("/dashboard").authenticated()
                 .mvcMatchers("/home").permitAll()
                 .mvcMatchers("/holidays/**").permitAll()
@@ -36,11 +38,15 @@ public class ProjectSecurityConfig  {
                 .mvcMatchers("/saveMsg").permitAll()
                 .mvcMatchers("/courses").permitAll()
                 .mvcMatchers("/about").permitAll()
+                .mvcMatchers(("/h2-console/**")).permitAll()
                 //.and().formLogin().and().httpBasic();  ---> need to create new login page with css style
                 .and().formLogin().loginPage("/login")
                 .defaultSuccessUrl("/dashboard").failureUrl("/login?error=true").permitAll()
                 .and().logout().logoutSuccessUrl("/login?logout=true").invalidateHttpSession(true).permitAll()
+                //.and().authorizeRequests().antMatchers("/h2-console/**").permitAll()
                 .and().httpBasic();
+
+            http.headers().frameOptions().disable(); // related to h2-console .
 
 
         return http.build();
