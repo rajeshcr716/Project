@@ -1,0 +1,18 @@
+Stream Pipe line terminating function is differ in many senario
+
+1) Min value in the list.
+ --> we need to use get() method at the end and store the value in the Integer variable.
+ 
+ 2)Storing the value in the List
+  --> collect(collectors.toList)
+  
+  3) Directly Printing the value
+  --> ForEach(System.out::println) // or use the lambda expression
+  
+  
+  4) show the usage stream.of() function in a program.
+  
+  
+  5) How to convert ArrayList to an array.?
+   using    toArray() method.
+   with stream and without stream is possible.

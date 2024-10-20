@@ -1,0 +1,73 @@
+
+1) what is the difference between INTEGER and int ?
+ * int is an premitive data type.     (non java object)
+ * INTEGER is an wrapper class int .  (java object)
+   This means Integer can be used in contexts where objects are required (like collections)
+ 
+ Usages:
+ * NULL value
+ int can not be null 
+ INTEGER can be null
+ 
+ * storage
+ int values are directly stored. ( like int a =10 )
+ INTEGER value stored as reference
+ but it's not necessary because java by default doing the autoboxing means
+ INTEGER A = 10 
+ INTEGER B = 20
+ int C = A + b
+ // by default in java both A and B are converted from INTEGER TO int.
+ INTEGER A = 10 
+ INTEGER B = NULL
+ int C = A + b
+ // throw an error because int can't accept the null values.
+ 
+ 
+  INTEGER A = 10 
+  INTEGER B = 20
+   int C = A + b
+   //result  C = 30 
+ 
+  
+Storage:
+
+int values are stored directly.
+Integer objects are stored as references.
+Nullability:
+
+int cannot be null.
+Integer can be null, allowing for the representation of the absence of a value.
+Methods:
+
+int has no methods.
+Integer has methods for conversion and comparison, among others (e.g., Integer.parseInt(), Integer.compare()).
+
+
+
+Importnat:
+* int value stores in Stack memory and Integer value store in heap memory.
+in the Integer case if we assign value -128 to +127. then java assign memory location by default or using.
+ex:
+ Integer x = 126;
+ Integer y = 126;  // here above both are stored in heap memory but memory addres is same.
+ 
+ Integer x1 = 128;
+ Integer x2 = 128; // here memory address is not same becase it cross the Integer range value.
+ 
+ 
+ Wrapper class with new Keyword
+ 
+ Integer x1 = new Integer(10);
+ Integer x2 = new Integer(20);
+ // stored in heap memory and always jvm create an new memory address.both memory address are not equal.
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+ 
