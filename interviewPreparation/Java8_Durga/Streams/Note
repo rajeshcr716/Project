@@ -16,3 +16,8 @@ Stream Pipe line terminating function is differ in many senario
   5) How to convert ArrayList to an array.?
    using    toArray() method.
    with stream and without stream is possible.
+   
+   
+   6) String sort and Integer Sort
+      comparable Interface --> compareTo() is applicable for both Integer and string sorting.
+      but comparator interface is applicable only for Integer sort.

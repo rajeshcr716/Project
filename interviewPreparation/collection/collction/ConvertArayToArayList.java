@@ -1,8 +1,8 @@
 package collction;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+ 
+import java.util.*;
+
 
 public class ConvertArayToArayList {
  public static void main(String[] args) {
@@ -11,17 +11,20 @@ public class ConvertArayToArayList {
 
 	 String city[] = {"Banglore","Manglore","Mysore","Hubli"};
 	 String city1[] = {"chenni","nagpur","jaipur"};
-	
-	 
-	 
-	 
+   
 	 System.out.println(Arrays.toString(city));//convert arrays to string
-	 ArrayList<String> ar = new ArrayList<String>(Arrays.asList(city));
-	 Collections.addAll(ar,city1);
+	 
+	 //We are using below method to convert Array to collection or ArrayList..etc
+	 List<String> ar1 = Arrays.asList(city);
+     List<String> ar = new ArrayList<String>(Arrays.asList(city));
+	 
+     Collections.addAll(ar,city1);
+	 
+	 
 	 System.out.println(ar);
 	  System.out.println(ar.contains("Banglore"));
 	  System.out.println(ar);
 	 
-    
+ 
 }
 }
