@@ -1,6 +1,5 @@
  package collction;
  
- public class Student{
  public class ThreadSleep{
 	  public static void main(String[] args) {
 		
