@@ -3,7 +3,7 @@ import java.util.*;
 public class Hashmap {
 	public static void main(String []ar)
 	{
-		String x= "Aradhya";
+		String x= "Aradhyya";
 		x=x.toUpperCase();
 		char y[]=x.toCharArray();
 		
@@ -35,8 +35,12 @@ public class Hashmap {
 		
 	for(Map.Entry<Character,Integer> m:map.entrySet())
 	{
-		System.out.println( "key:  "+m.getKey()+ "  Value: "+m.getValue());
-		//System.out.println("Value: "+m.getValue() );
+		//System.out.println( "key:  "+m.getKey()+ "  Value: "+m.getValue());
+		
+		if(m.getValue()>1)
+		{
+			System.out.println("Duplicate key: "+ m.getKey());
+		}
 	}
 		
 	}
