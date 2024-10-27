@@ -31,9 +31,9 @@ public class Hashmap {
 		 
 		 
 	}
-		Set<Map.Entry<Character,Integer>> hmap = map.entrySet();
+		//Set<Map.Entry<Character,Integer>> hmap = map.entrySet();
 		
-	for(Map.Entry<Character,Integer> m:hmap)
+	for(Map.Entry<Character,Integer> m:map.entrySet())
 	{
 		System.out.println( "key:  "+m.getKey()+ "  Value: "+m.getValue());
 		//System.out.println("Value: "+m.getValue() );
