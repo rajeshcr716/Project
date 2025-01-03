@@ -1,0 +1,138 @@
+person table
+
+schema.sql
+1. role table 
+ primary key column (role_id).. and other values
+
+2. address table
+primary key column (address_id)
+
+3. person table
+primary key column (person_id)
+
+--> role_id is not null given. 
+
+
+Insert the role value to role table
+
+2.___(162 section) 
+explnation.
+add pojo class validation for below class
+role (class)
+address (class)
+
+repository (package) 
+RolesRepository (class)
+
+3.____(163 section)
+one to one relationship
+entity in one table is associated with only one record in another table.
+
+hibernate relation annotation we annotating inside pojo class above the 
+class field.
+
+@oneToOne (Fetch type, cashcade type, targetEntity)
+@JoinColumn (name, referenceColumnName, nullable = ..)
+
+* Fetch type means fetching the child class entiry or not.
+* cashcade type means If I delete the parent entity then child entity also need
+  to delete or not.
+* targetEntiry means 
+
+@joinColumn
+this indicating target table column
+* name indicate acutal column name in the table.
+* rerColName -- used for reference columnName for spring reference.
+* nullable = true means this field can also nullable.
+
+4.___(165 section)
+
+cashcade types
+1. cashcade.PERSIST
+-> saving parent record with child entiry. 
+ex: person field with address
+
+2.  MERGE
+similar to update operation. update operation on parent it apply
+on child also.
+
+3.  REFRESH
+reload the object from the database. Whenver reloading the parent entity
+reload the child entiry also.
+
+4.  REMOVE
+remove the person detail then remove address table record. 
+parent to child to remove.
+don't apply for person and roles. after we getting an error
+
+5.  DETACH
+
+6.  ALL
+
+5.___(166 section)
+
+person pojo class
+
+Person to Role Relationship
+fetch type is Eager.
+cascade type is Persist
+targetEnttiy is Role
+
+@joinColumn
+column name  is "role_id"  (Actual database column name)
+"role_id" is the foreign key reference present in the parent table
+"person" table.
+reference table name is reference name using inside sprigboot.
+
+
+Person to Address Relationship
+column name is "address_id"
+cascade type is "All" because person is deleted or updated then address also
+part of the person. 
+
+
+controller (package)-> publicController (class)
+
+persisting the new user registration details.
+
+save the new registartion detail inside the personService.class
+
+create new method 
+createNewPerson(..)
+1. save person detail in person repository
+here person to Role One to One Relation so and
+
+2. first we need to fetch role information using derived query method.
+
+Repository (package) -> RolesRepository (class)
+write a new derived query method.
+
+Fetch the role information in the PersonService class
+
+note: here we're not able login new registered user becuase in spring security
+only login configuration two user only allowed.
+
+
+security (package) -> EazySchoolUsernamePwdAuthenticationProvider (class)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

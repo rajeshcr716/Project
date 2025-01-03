@@ -1,0 +1,24 @@
+new Regime:
+Gross salary: 979392
+Total tax payable: 42060
+Monthly Average deduction: 42060/12 -> 3505 (some time vary month to month deduction)
+
+new Regime:
+Gross salary: 979392
+Total tax payable: 91333
+
+Monthly Average deduction: 91333/12 -> 7611 (some time vary month to month deduction )
+
+Question: Last year I seleted new tax regime and yealy dedution amount is 42060.
+
+Now I decided to move old regime before that I want to confirm one thing.
+
+I had invested in the "Tata AIA Life Guaranteed Return Insurance Plan"
+This plan coming under 80C. investment amount is 1 Lack plus Tax around 4 thousand GST.
+Total amount invested is 104000.
+
+When I selet old regime can I claim whole 91333 Rs ?
+Is there monthly deduction happens ?
+please provide the information for the above query.
+
+ 
