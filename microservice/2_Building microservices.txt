@@ -1,0 +1,263 @@
+section 6:
+if we consider a web application, traditional (old) approch involves packaging
+it as a WAR or EAR file. These archive formats commonly used to bundle java 
+applications, which are then deployed to web server like Tomcat or application
+servers like WildFly.
+
+so this approch is familear for microservices ?
+here 100s of services are there so which option we need to choose.
+--> Spring Boot.
+
+section 7:
+how we build microservice using spring boot ?
+Using spring boot we can build self contained executable jar files instead of the 
+traditional WAR or EAR files. 
+These jar file contain all dependecies and configuration required to run microservices.
+In spring boot eliminates need for external web servers or appliction servers.
+Spring also provide monitoring tools.
+
+Architecture
+
+Traditional approch vs Modern approach
+
+Traditional approch 
+exteranl server attached
+
+Modern approch 
+embedded server
+
+
+section 9:
+Implementing REST service
+Below are the different use cases where services are being used most frequently.
+Image-->
+
+
+Rest service are built to expose the bussiness functionality 
+and it support CRUD operations.
+Image -->
+
+section 11:
+creating spring boot project
+Project: Maven
+Language: Java
+Spring Boot: 3.1.1 (any)
+
+Group: com.eazbytes
+Artifact: accounts
+Name: accounts
+Description: Demo project for spring boot
+package name: com.eazbytes
+
+Packaging: Jar
+Java: 17
+
+Dependency: Spring Web, H2 database, Spring Data JPA, Spring Boot Actuator, 
+DevTools, Actuator, Lombok.
+
+GENERATE
+
+section 12:
+go to settings -> plugins
+                  -> add codium plugins
+Login to windsurf using gmail. Then only codium showing in our IDE.
+create a "demo" class
+
+Note: bottom "windsurf" icon will be there you can disable, logOur, disable some time period
+in learning time ..etc
+
+very helpfull topic use this in the project working.  
+
+section 13:
+controller (package) -> AccountController (class)
+write a code to print "hello" using rest api 
+also modify the code and press CTRL + F9 ( build the code)
+refresh and check -- dev tool depedency is working or not.
+
+note:  Go to settings    
+                    -> search "annotation.."  
+                        tick on "Enable annotation processing" 
+                             otherwise lombok lib not able to all lombok lib feature.
+
+section 14:
+h2 database and YAML configurations
+YAML also type of coniguration property file we used this in senario
+cloud based configuration like GCP, Kubernetes, Docker, AWS.. these type 
+of configuration we use YAML files.
+
+what is main difference b/w app.properties and YAML ?
+mainly they differ in syntax.
+application.properties comes in the same line like.
+YAML give importance for Identation.
+
+H2 - DB
+For the internal database we have to create two
+1. schema.sql (write all sql qeury )
+2. data.sql (values)
+
+
+section 16:
+add dependency 
+ -> spring data jpa
+
+new
+entity (package) -> BaseEntity (class)
+add the fields.
+annotate @Lombok // @Getter,@Setter,@ToString
+@MappedSuperclass -> This class act as super class for all other class.
+
+@Column(updatable = false ) this means I do not want to update record
+when field is updated. only update in creation time.
+
+@Column(insertable = false)
+please do not populate this field when new record is inserted.
+
+
+entity (package) -> Customer (class)
+
+entity (package) -> Accounts (class)
+
+account number field we have not added 
+any primary key genration annotation because account 
+not be unique number. 
+
+
+Now need to create the repository class
+repository  (package) -> CustomerRepository (interface)
+
+repository  (package) -> AccountRepository (interface)
+
+
+section 17:
+DTO pattern
+-> The Data Transfer Object(DTO) pattern is a design pattern that 
+allows you to transfer data between different parts of your application.
+DTO are simply object that contain only data, and they do not contain
+any bussiness logic.
+This will help us to transfer data between different layer of your appplication
+such as presentation layer and data access layer.
+--> image
+
+
+DTO (package) -> AccountDto (class)
+remove JPA related fied (copy from account class)
+
+DTO (package) -> CustomerDto (class)
+remove JPA related fied (copy from Customer class)
+
+
+DTO (package) -> ResponseDto (class)
+-> new class with fields
+
+DTO (package) -> ErrorResponseDto (class)
+-> new class with fields
+
+section 19:
+controller (package) -> AccountController (class)
+build rest api class
+-> path = /api
+   produces = {MediaType.APPLICATION_JSON_VALUE}
+Note: select media type from "org.springframework"
+Using this media type, we can invoke a constant which is APPLICATION_JSON_VALUE.
+
+@RestConntroller
+@Requestmapping(..)
+public class AccountController {
+
+
+}
+
+Now going creting a method. that create an account operation
+Note: I have created private constructor for this account.
+beacause I do not want to create any overide methods.
+
+
+
+
+
+   @PostMapping("/create")
+    public ResponseEntity<ResponseDto> createAccount(@RequestBody CustomerDto customerDto) {
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(new ResponseDto());
+    }
+
+
+Note: above param we need to pass customerDto class object
+ write rturn stmt
+   response entity 
+   mention the status  -> means given resource is created successfluly
+   send the object of ResponseDto -> I'm going to send the object of ResponseDto that we have created
+
+contant (package) -> AccountConstants (class)
+add the code
+
+service (package) -> IAccountService (interface)
+New sub package 
+              Impl (package) -> AccountServiceImpl (interface)
+
+
+Mapper (service) ->  AccountMapper (class)
+ mapping DTO to entity and entity to DTO 
+ it will copy all the account number, account type and branch
+ address to the DTO and it is going to return that DTO to the method
+ where is trying to invoke this method,
+
+ similerly 2nd method will transfer the data from Dto to accounts.
+
+
+section 20:
+AccountServiceImpl (class)
+I need to convert the input received customer DTO to Customer entity
+object.
+
+we creating the customer account using customer pojo referece detail
+1. account number  // randomly generate using logic
+2. customer id  // recive from the param
+3. account type // types are declared in constant class
+4. brachAddress // same
+
+
+how to handle the exception
+for example customer giving the same mobile number then we need
+to handle the error senario. 
+
+exception (package) -> CustomerAlreadyExistsException (class)
+create one new class for exception and extends "RuntimeException" super class
+
+
+repository (package) -> CustomerRepository (class)
+need to find the mobile number so I'm using derived name query.
+use "Optional" class 
+Optional<Customer>findByMobileNumber(String mobileNumber);
+
+findByMobileNumber   // this one compare and find mob no not case sensitive.
+
+
+Service (package) -> AccountServiceImpl (class)
+
+createAccount(..)
+get the mobileNum using Optional object from customerRepository.
+next ->
+  throw exception if phone number aleready exist.
+
+write a Global exception package
+Exception (package) -> GlobalExceptionHandler (class)
+
+ we using webRequest param in our application because inside our
+ ErrorResponseDto we decided to send the what is the path that my
+ client application is trying to invoke. -> private String apiPath;
+ 
+ webRequest.getDescription(false);
+ false meanse only get the API information
+ true receive the other information like IP address.. etc.
+ Now just want to know api path so.
+
+ using ExceptionHandler(..name) spring framework will understood this
+ method is handle which type of exception. 
+
+
+
+controller (package) -> AccontsController (class)
+ autowire the IAccountService interface
+

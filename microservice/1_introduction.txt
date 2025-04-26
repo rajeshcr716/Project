@@ -1,0 +1,31 @@
+1. introduction
+Microservice with SpringBoot, docker, Kubernetes.
+
+Agenda:
+ configurations inside your microservices with the help of spring cloud config server
+ Service Discovery and Service Registration in microservice using eureka.
+ Building an edge server for microservices using spring cloud gateway
+ Making microservice Resilent using Resiliency4J.
+
+Note: contairzation knowldge is required for the buliding microservice.
+
+Implementaion:
+
+
+Kubernetes:
+container Orchestration using Kubernetes.
+
+section: 3
+Monolethic architecture
+single code (UI, backend)
+
+SOA (service oriented architecture)
+separate code base for
+UI
+backend (service1, service2, service3)
+-->Total 1+3 server were used in deploying the service.
+
+Microservice
+
+
+
