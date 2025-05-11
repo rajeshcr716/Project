@@ -11,4 +11,11 @@ public interface IAccountsService {
      */
     void createAccount(CustomerDto customerDto);
 
+    //updated 9
+    CustomerDto fetchAccountDetails(String mobileNumber);
+
+    boolean updateAccount(CustomerDto customerDto);
+
+    boolean deleteAccount(String mobileNumber);
+
 }
