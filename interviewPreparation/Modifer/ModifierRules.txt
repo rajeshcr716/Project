@@ -1,0 +1,3 @@
+It’s especially valuable when you are designing base classes / frameworks where you want only subclasses to use certain features.
+
+The main use of protected inner class is to avoid the direct access.

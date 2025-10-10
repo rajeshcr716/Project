@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/bin" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Exception" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java8_Durga" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java8_Youtube" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Modifer" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Oops" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/collection" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/oops" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/stringPgm" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/testPractice" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/thread" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="inheritedJdk" />
+  </component>
+</module>

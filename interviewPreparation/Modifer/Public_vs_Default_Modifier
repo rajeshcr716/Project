@@ -1,0 +1,30 @@
+here we demonstrating the modifer public vs default
+1. package_1
+   once class 'A'  with public modifier.
+   if we remove the 'public' modified then class 'A' can't be access from outside of the package.
+
+2. package_2
+   one class 'B' here we extending the class A from package1.
+   condition 
+   so we imported package1 in header.
+   inside the main method we created object of the class  A.
+   
+   
+   summary: Public class can access anywhere. 
+            Default class access only within in the package.
+   
+   
+here we demonstrating the use of "Protected" method in the class.   
+ 3. package 3 
+    C.java
+    Inside class 'C' we created one 'protected' type method.
+    
+ 
+ 4. package 4
+    D.java
+    here we extending the class C present in the package3.
+    class D extending the class C. here class class D object acess the method of class C.
+    
+    summary: 'protected' modifier cab be accessible with in the package and outside the package also but
+             only in the extended class or child class. 
+    
